@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+}
+.jogador{
+    width: 49px;
+    height: 60px;
+    background-image: url(imagens/jogador0.png);
+    animation-name: movimentoJogador;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    bottom: 0;
+}
+.zumbi{
+    width: 50px;
+    height: 60px;
+    background-image: url(imagens/zumbi0.png);
+    animation-name: movimentoZumbi;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    bottom: 0;
+}
+.fimDeJogo{
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    font-family: arial;
+}
+@keyframes deslizarEsquerda{
+    from{
+        background-position: 0;
+    }
+    to
+    {
+        background-position: 6000%;
+    }
+}
+@keyframes movimentoJogador{
+        0% {background-image: url(imagens/jogador0.png);}
+        35% {background-image: url(imagens/jogador1.png);}
+        70% {background-image: url(imagens/jogador2.png);}
+}
+@keyframes movimentoZumbi{
+    0% {background-image: url(imagens/zumbi0.png);}
+    35%{background-image: url(imagens/zumbi1.png);}
+    70% {background-image: url(imagens/zumbi2.png);}
+}
+.planoDeFundo{
+    position: absolute;
+    bottom: 0;
+    background-image: url(imagens/planoDeFundo.jpg); /*poster PNG Designed By 588ku from <a href="https://pngtree.com">Pngtree.com</a>*/
+    background-repeat: repeat-x;
+    animation: deslizarEsquerda 500s infinite linear;
+    width: 100%;
+    height: 87%; 
+}
