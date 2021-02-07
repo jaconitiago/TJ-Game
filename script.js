@@ -5,8 +5,8 @@ let estaPulando = false;
 let posicaoJogador = 0;
 
 function pressionar(event){
-    //Captura a ação de pressionar o botão espaço.
-    if(event.keyCode === 32){
+    //Captura a ação de pressionar o botão espaço, w ou seta para cima.
+    if(event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87 ){
         if(!estaPulando){
             pular(); //Executa a função de pular.
         }
@@ -27,13 +27,13 @@ function pular(){
                     clearInterval(intervaloDeDescida); //Para de descer.
                 }else{
                     //Descendo
-                    posicaoJogador-= 20;
+                    posicaoJogador-= 10;
                     jogador.style.bottom = posicaoJogador + 'px';
                 }
             }, 20);
         }else{
             //Subindo
-            posicaoJogador+= 20;
+            posicaoJogador+= 10;
             jogador.style.bottom = posicaoJogador + 'px';
         }
     }, 20);
@@ -53,9 +53,9 @@ function criarZumbis(){
         if(zumbiPosicao < -50){
             clearInterval(intervaloDaEsquerda);
             planoDeFundo.removeChild(zumbi);
-        }else if (zumbiPosicao > 0 && zumbiPosicao < 50 &&  posicaoJogador < 60){
+        }else if (zumbiPosicao > 0 && zumbiPosicao < 30 &&  posicaoJogador < 60){
             clearInterval(intervaloDaEsquerda);
-            document.body.innerHTML = '<h1 class= "fimDeJogo">Fim de jogo...</h1>';
+            document.body.innerHTML = '<h1 class= "fimDeJogo">Fim!</h1> <h2 class="reiniciar"><a href= index.html>Reiniciar</a></button>';
         }else{
             zumbiPosicao-= 5;
             zumbi.style.left = zumbiPosicao + 'px';
